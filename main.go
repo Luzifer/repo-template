@@ -9,13 +9,12 @@ import (
 	"os"
 	"regexp"
 	"strings"
-	"text/template"
 
 	"golang.org/x/oauth2"
 
 	"github.com/Luzifer/rconfig"
+	"github.com/flosch/pongo2"
 	"github.com/google/go-github/github"
-	"github.com/gosimple/slug"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -170,33 +169,29 @@ func render(repo *github.Repository) error {
 		return err
 	}
 
-	tpl, err := template.New("output").Funcs(tplFuncs()).Parse(string(tplRaw))
+	tpl, err := pongo2.FromString(string(tplRaw))
 	if err != nil {
 		return err
 	}
 
-	return tpl.Execute(outFile, repo)
+	return tpl.ExecuteWriter(pongo2.Context{
+		"repo": repo,
+	}, outFile)
 }
 
 func getOutfile(repo *github.Repository) (string, error) {
-	tpl, err := template.New("outfile").Funcs(tplFuncs()).Parse(cfg.Output)
+	tpl, err := pongo2.FromString(cfg.Output)
 	if err != nil {
 		return "", err
 	}
 	buf := new(bytes.Buffer)
 
-	err = tpl.Execute(buf, repo)
+	err = tpl.ExecuteWriter(pongo2.Context{
+		"repo": repo,
+	}, buf)
 	return buf.String(), err
 }
 
 func simpleReplace(s, old, new string) string {
 	return strings.Replace(s, old, new, -1)
-}
-
-func tplFuncs() template.FuncMap {
-	return template.FuncMap{
-		"chkPtrBool": func(i *bool) bool { return i != nil && *i },
-		"slugify":    slug.Make,
-		"replace":    simpleReplace,
-	}
 }
