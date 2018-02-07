@@ -20,6 +20,7 @@ import (
 
 var (
 	cfg = struct {
+		ExpandMatches  bool     `flag:"expand-matches" default:"false" description:"Replace matched repos with their full version"`
 		Filters        []string `flag:"filter,f" default:"" description:"Filters to match the repos against"`
 		GithubToken    string   `flag:"token" default:"" env:"GITHUB_TOKEN" description:"Token to access Github API"`
 		LogLevel       string   `flag:"log-level" default:"info" description:"Log level for output (debug, info, warn, error, fatal)"`
@@ -100,6 +101,12 @@ func main() {
 			continue
 		}
 
+		if cfg.ExpandMatches {
+			if err := expandRepo(repo); err != nil {
+				log.WithError(err).Error("Unable to expand repo")
+			}
+		}
+
 		log.WithFields(log.Fields{
 			"repo":    *repo.FullName,
 			"private": *repo.Private,
@@ -111,6 +118,17 @@ func main() {
 			continue
 		}
 	}
+}
+
+func expandRepo(repo *github.Repository) error {
+	ctx := context.Background()
+	r, _, err := client.Repositories.Get(ctx, *repo.Owner.Login, *repo.Name)
+	if err != nil {
+		return err
+	}
+
+	repo = r
+	return nil
 }
 
 func fetchRepos() ([]*github.Repository, error) {
