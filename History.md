@@ -1,3 +1,7 @@
+# 0.5.1 / 2018-02-07
+
+  * Fix: Replacement needs to be done on pointer level
+
 # 0.5.0 / 2018-02-07
 
   * Add option to expand repo to contain all infos
