@@ -1,3 +1,7 @@
+# 0.4.0 / 2018-02-07
+
+  * Migrate to pongo2 as template engine
+
 # 0.3.0 / 2018-02-07
 
   * Add filter for archived repos
