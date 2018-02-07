@@ -10,10 +10,13 @@ import (
 type filterFunc func(*github.Repository) bool
 
 var filters = map[string]filterFunc{
+	"archived":   filterArchived,
 	"fork":       filterFork,
 	"dockerfile": filterDockerfile,
 	"public":     filterPublic,
 }
+
+func filterArchived(repo *github.Repository) bool { return repo.Archived != nil && *repo.Archived }
 
 func filterDockerfile(repo *github.Repository) bool {
 	ctx := context.Background()
