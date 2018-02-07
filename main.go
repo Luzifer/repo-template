@@ -127,7 +127,7 @@ func expandRepo(repo *github.Repository) error {
 		return err
 	}
 
-	repo = r
+	*repo = *r
 	return nil
 }
 
