@@ -189,9 +189,14 @@ func getOutfile(repo *github.Repository) (string, error) {
 	return buf.String(), err
 }
 
+func simpleReplace(s, old, new string) string {
+	return strings.Replace(s, old, new, -1)
+}
+
 func tplFuncs() template.FuncMap {
 	return template.FuncMap{
 		"chkPtrBool": func(i *bool) bool { return i != nil && *i },
 		"slugify":    slug.Make,
+		"replace":    simpleReplace,
 	}
 }
