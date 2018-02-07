@@ -1,3 +1,7 @@
+# 0.5.0 / 2018-02-07
+
+  * Add option to expand repo to contain all infos
+
 # 0.4.0 / 2018-02-07
 
   * Migrate to pongo2 as template engine
