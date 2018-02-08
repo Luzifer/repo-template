@@ -1,3 +1,7 @@
+# 0.6.0 / 2018-02-08
+
+  * Add blacklist for repos
+
 # 0.5.1 / 2018-02-07
 
   * Fix: Replacement needs to be done on pointer level
