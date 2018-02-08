@@ -21,7 +21,7 @@ import (
 
 var (
 	cfg = struct {
-		Blacklist      []string `flag;"blacklist,b" default:"" description:"Repos to ignore even when matched through filters"`
+		Blacklist      []string `flag:"blacklist,b" default:"" description:"Repos to ignore even when matched through filters"`
 		ExpandMatches  bool     `flag:"expand-matches" default:"false" description:"Replace matched repos with their full version"`
 		Filters        []string `flag:"filter,f" default:"" description:"Filters to match the repos against"`
 		GithubToken    string   `flag:"token" default:"" env:"GITHUB_TOKEN" description:"Token to access Github API"`
