@@ -12,6 +12,7 @@ import (
 
 	"golang.org/x/oauth2"
 
+	"github.com/Luzifer/go_helpers/str"
 	"github.com/Luzifer/rconfig"
 	"github.com/flosch/pongo2"
 	"github.com/google/go-github/github"
@@ -20,6 +21,7 @@ import (
 
 var (
 	cfg = struct {
+		Blacklist      []string `flag;"blacklist,b" default:"" description:"Repos to ignore even when matched through filters"`
 		ExpandMatches  bool     `flag:"expand-matches" default:"false" description:"Replace matched repos with their full version"`
 		Filters        []string `flag:"filter,f" default:"" description:"Filters to match the repos against"`
 		GithubToken    string   `flag:"token" default:"" env:"GITHUB_TOKEN" description:"Token to access Github API"`
@@ -68,6 +70,10 @@ func main() {
 
 	for _, repo := range repos {
 		if !regexp.MustCompile(cfg.NameRegex).MatchString(*repo.FullName) {
+			continue
+		}
+
+		if str.StringInSlice(*repo.FullName, cfg.Blacklist) {
 			continue
 		}
 
