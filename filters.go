@@ -1,10 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"context"
 	"strings"
 
-	"github.com/Luzifer/go_helpers/str"
 	"github.com/google/go-github/github"
 	log "github.com/sirupsen/logrus"
 )
@@ -55,8 +55,11 @@ func filterMakeJenkins(repo *github.Repository) bool {
 		return false
 	}
 
-	if str.StringInSlice("jenkins:", strings.Split(*fc.Content, "\n")) {
-		return true
+	scanner := bufio.NewScanner(strings.NewReader(*fc.Content))
+	for scanner.Scan() {
+		if strings.HasPrefix(scanner.Text(), "jenkins:") {
+			return true
+		}
 	}
 
 	return false
