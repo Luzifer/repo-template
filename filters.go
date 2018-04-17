@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"context"
+	"encoding/base64"
 	"strings"
 
 	"github.com/google/go-github/github"
@@ -55,7 +56,7 @@ func filterMakeJenkins(repo *github.Repository) bool {
 		return false
 	}
 
-	scanner := bufio.NewScanner(strings.NewReader(*fc.Content))
+	scanner := bufio.NewScanner(base64.NewDecoder(base64.StdEncoding, strings.NewReader(*fc.Content)))
 	for scanner.Scan() {
 		if strings.HasPrefix(scanner.Text(), "jenkins:") {
 			return true
