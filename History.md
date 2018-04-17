@@ -1,3 +1,7 @@
+# 0.7.2 / 2018-04-17
+
+  * Fix: Data is base64 encoded
+
 # 0.7.1 / 2018-04-17
 
   * Fix: Jenkins targets might have dependencies
