@@ -1,3 +1,7 @@
+# 0.7.0 / 2018-04-17
+
+  * Add make-jenkins filter to find Makefiles with `jenkins` target
+
 # 0.6.0 / 2018-02-08
 
   * Add blacklist for repos
