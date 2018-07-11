@@ -180,7 +180,7 @@ func matchTopicFilter(repo *github.Repository) bool {
 
 		negate := topic[0] == '-'
 		if negate {
-			topic = topic[1:len(topic)]
+			topic = topic[1:]
 		}
 
 		if str.StringInSlice(topic, repo.Topics) != negate {
@@ -240,8 +240,4 @@ func getOutfile(repo *github.Repository) (string, error) {
 		"repo": repo,
 	}, buf)
 	return buf.String(), err
-}
-
-func simpleReplace(s, old, new string) string {
-	return strings.Replace(s, old, new, -1)
 }
