@@ -1,3 +1,8 @@
+# 0.8.1 / 2018-07-12
+
+  * Linter: Follow linter advices
+  * Refactor: Extract filters to function
+
 # 0.8.0 / 2018-07-11
 
   * Allow filtering repos by topic
