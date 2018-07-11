@@ -1,3 +1,7 @@
+# 0.8.0 / 2018-07-11
+
+  * Allow filtering repos by topic
+
 # 0.7.2 / 2018-04-17
 
   * Fix: Data is base64 encoded
