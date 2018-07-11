@@ -82,33 +82,7 @@ func main() {
 			continue
 		}
 
-		skip := false
-
-		for _, f := range cfg.Filters {
-			if f == "" {
-				continue
-			}
-
-			var (
-				inverse = false
-				filter  = f
-			)
-
-			if strings.HasPrefix(filter, "no-") {
-				inverse = true
-				filter = filter[3:]
-			}
-
-			if filters[filter](repo) == inverse {
-				log.WithFields(log.Fields{
-					"filter": filter,
-					"repo":   *repo.FullName,
-				}).Debug("Repo was filtered")
-				skip = true
-			}
-		}
-
-		if skip {
+		if !matchFilters(repo) {
 			continue
 		}
 
@@ -168,6 +142,34 @@ func fetchRepos() ([]*github.Repository, error) {
 	}
 
 	return repos, nil
+}
+
+func matchFilters(repo *github.Repository) bool {
+	for _, f := range cfg.Filters {
+		if f == "" {
+			continue
+		}
+
+		var (
+			inverse = false
+			filter  = f
+		)
+
+		if strings.HasPrefix(filter, "no-") {
+			inverse = true
+			filter = filter[3:]
+		}
+
+		if filters[filter](repo) == inverse {
+			log.WithFields(log.Fields{
+				"filter": filter,
+				"repo":   *repo.FullName,
+			}).Debug("Repo was filtered")
+			return false
+		}
+	}
+
+	return true
 }
 
 func matchTopicFilter(repo *github.Repository) bool {
