@@ -29,6 +29,7 @@ var (
 		NameRegex      string   `flag:"name-regex" default:".*" description:"Regex to match the name against"`
 		Output         string   `flag:"out,o" default:"-" description:"File to write to (- = stdout)"`
 		Template       string   `flag:"template" default:"" description:"Template file to use for rendering" validate:"nonzero"`
+		TopicFilter    []string `flag:"topic,t" default:"" description:"Filter by topic (Format: 'topic' to include, '-topic' to exclude)"`
 		VersionAndExit bool     `flag:"version" default:"false" description:"Prints current version and exits"`
 	}{}
 
@@ -74,6 +75,10 @@ func main() {
 		}
 
 		if str.StringInSlice(*repo.FullName, cfg.Blacklist) {
+			continue
+		}
+
+		if !matchTopicFilter(repo) {
 			continue
 		}
 
@@ -163,6 +168,25 @@ func fetchRepos() ([]*github.Repository, error) {
 	}
 
 	return repos, nil
+}
+
+func matchTopicFilter(repo *github.Repository) bool {
+	for _, topic := range cfg.TopicFilter {
+		if topic == "" {
+			continue
+		}
+
+		negate := topic[0] == '-'
+		if negate {
+			topic = topic[1:len(topic)]
+		}
+
+		if str.StringInSlice(topic, repo.Topics) != negate {
+			return true
+		}
+	}
+
+	return false
 }
 
 func render(repo *github.Repository) error {
