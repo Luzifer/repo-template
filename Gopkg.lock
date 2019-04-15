@@ -2,99 +2,125 @@
 
 
 [[projects]]
+  digest = "1:ac6e59cf5217c887f6872dc24ebcc3dbbbca6828d7f30b2f24008ec88b5839f3"
   name = "github.com/Luzifer/go_helpers"
   packages = ["str"]
-  revision = "8fdddb7041fe962e750caa553a0714f94e261c4a"
-  version = "v2.3.1"
+  pruneopts = "NUT"
+  revision = "dabc93c52b28192379134e29b8b8b35a9c0e9801"
+  version = "v2.9.1"
 
 [[projects]]
+  digest = "1:f6cc072a289a686fda22819d871cd1b0407640141b2f6616dfbab957c96bf6c3"
   name = "github.com/Luzifer/rconfig"
   packages = ["."]
-  revision = "7aef1d393c1e2d0758901853b59981c7adc67c7e"
-  version = "v1.2.0"
+  pruneopts = "NUT"
+  revision = "d38bbb45e0ac240398f2af710a6b21833954f006"
+  version = "v2.2.1"
 
 [[projects]]
+  digest = "1:97fe15521b94567623f129867afbcdbe4010c471ed295a5dd2d458656f18678a"
   name = "github.com/flosch/pongo2"
   packages = ["."]
+  pruneopts = "NUT"
   revision = "5e81b817a0c48c1c57cdf1a9056cf76bdee02ca9"
   version = "v3.0"
 
 [[projects]]
+  digest = "1:318f1c959a8a740366fce4b1e1eb2fd914036b4af58fbd0a003349b305f118ad"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
-  revision = "925541529c1fa6821df4e44ce2723319eb2be768"
+  pruneopts = "NUT"
+  revision = "b5d812f8a3706043e23a9cd5babf2e5423744d30"
+  version = "v1.3.1"
+
+[[projects]]
+  digest = "1:b4303d38d92c00af6603f3b865a9bd20e3c50cebe55489e5aeb721c26750e375"
+  name = "github.com/google/go-github"
+  packages = ["github"]
+  pruneopts = "NUT"
+  revision = "7462feb2032c2da9e3b85e9b04e6853a6e9e14ca"
+  version = "v24.0.1"
+
+[[projects]]
+  digest = "1:a63cff6b5d8b95638bfe300385d93b2a6d9d687734b863da8e09dc834510a690"
+  name = "github.com/google/go-querystring"
+  packages = ["query"]
+  pruneopts = "NUT"
+  revision = "44c6ddd0a2342c386950e880b658017258da92fc"
   version = "v1.0.0"
 
 [[projects]]
-  name = "github.com/google/go-github"
-  packages = ["github"]
-  revision = "e48060a28fac52d0f1cb758bc8b87c07bac4a87d"
-  version = "v15.0.0"
-
-[[projects]]
-  branch = "master"
-  name = "github.com/google/go-querystring"
-  packages = ["query"]
-  revision = "53e6ce116135b80d037921a7fdd5138cf32d7a8a"
-
-[[projects]]
+  digest = "1:974a3957354622ffb7b0b345374322f782800a8e4c4517022fce77ef796249c5"
   name = "github.com/gosimple/slug"
   packages = ["."]
-  revision = "e9f42fa127660e552d0ad2b589868d403a9be7c6"
-  version = "v1.1.1"
+  pruneopts = "NUT"
+  revision = "e78d39397ba41d2c33d9615044ef93eca8a309d8"
+  version = "v1.5.0"
+
+[[projects]]
+  digest = "1:58999a98719fddbac6303cb17e8d85b945f60b72f48e3a2df6b950b97fa926f1"
+  name = "github.com/konsorten/go-windows-terminal-sequences"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "f55edac94c9bbba5d6182a4be46d86a2c9b5b50e"
+  version = "v1.0.2"
 
 [[projects]]
   branch = "master"
+  digest = "1:16e2136a67ec44aa2d1d6b0fd65394b3c4a8b2a1b6730c77967f7b7b06b179b2"
   name = "github.com/rainycape/unidecode"
   packages = ["."]
+  pruneopts = "NUT"
   revision = "cb7f23ec59bec0d61b19c56cd88cee3d0cc1870c"
 
 [[projects]]
+  digest = "1:998e4640c25e00ccb7b2569bf94562283937b8afb3485c0e1a0a05a15330240d"
   name = "github.com/sirupsen/logrus"
   packages = ["."]
-  revision = "d682213848ed68c0a260ca37d6dd5ace8423f5ba"
-  version = "v1.0.4"
+  pruneopts = "NUT"
+  revision = "8bdbc7bcc01dcbb8ec23dc8a28e332258d25251f"
+  version = "v1.4.1"
 
 [[projects]]
+  digest = "1:9d8420bbf131d1618bde6530af37c3799340d3762cc47210c1d9532a4c3a2779"
   name = "github.com/spf13/pflag"
   packages = ["."]
-  revision = "e57e3eeb33f795204c1ca35f56c44f83227c6e66"
-  version = "v1.0.0"
+  pruneopts = "NUT"
+  revision = "298182f68c66c05229eb03ac171abe6e309ee79a"
+  version = "v1.0.3"
 
 [[projects]]
   branch = "master"
-  name = "golang.org/x/crypto"
-  packages = ["ssh/terminal"]
-  revision = "d9133f5469342136e669e85192a26056b587f503"
-
-[[projects]]
-  branch = "master"
+  digest = "1:f8b491a7c25030a895a0e579742d07136e6958e77ef2d46e769db8eec4e58fcd"
   name = "golang.org/x/net"
   packages = [
     "context",
-    "context/ctxhttp"
+    "context/ctxhttp",
   ]
-  revision = "2fb46b16b8dda405028c50f7c7f0f9dd1fa6bfb1"
+  pruneopts = "NUT"
+  revision = "4a65cf94b67935be46fbc55ddaea48ae3f7a1471"
 
 [[projects]]
   branch = "master"
+  digest = "1:4d25d388c9ad5169b31c1a6f16cc7bcdb856489958e99f2123d8d8cdf000d7eb"
   name = "golang.org/x/oauth2"
   packages = [
     ".",
-    "internal"
+    "internal",
   ]
-  revision = "543e37812f10c46c622c9575afd7ad22f22a12ba"
+  pruneopts = "NUT"
+  revision = "9f3314589c9a9136388751d9adae6b0ed400978a"
 
 [[projects]]
   branch = "master"
+  digest = "1:6340f2bc34a845d3f5141cb87916197518eebc94490f46aefe430b666a322606"
   name = "golang.org/x/sys"
-  packages = [
-    "unix",
-    "windows"
-  ]
-  revision = "37707fdb30a5b38865cfb95e5aab41707daec7fd"
+  packages = ["unix"]
+  pruneopts = "NUT"
+  revision = "3fd5a3612ccd7907f26270fa92579a0f2f76f734"
 
 [[projects]]
+  digest = "1:372cd8eba449f9b6db06677d0e73fa193ec5b19aaee148f355503ab6127045ca"
   name = "google.golang.org/appengine"
   packages = [
     "internal",
@@ -103,26 +129,39 @@
     "internal/log",
     "internal/remote_api",
     "internal/urlfetch",
-    "urlfetch"
+    "urlfetch",
   ]
-  revision = "150dc57a1b433e64154302bdc40b6bb8aefa313a"
-  version = "v1.0.0"
+  pruneopts = "NUT"
+  revision = "54a98f90d1c46b7731eb8fb305d2a321c30ef610"
+  version = "v1.5.0"
 
 [[projects]]
   branch = "v2"
+  digest = "1:1ab6db2d2bd353449c5d1e976ba7a92a0ece6e83aaab3e6674f8f2f1faebb85a"
   name = "gopkg.in/validator.v2"
   packages = ["."]
-  revision = "59c90c7046f643cbe0d4e7c8776c42a84ce75910"
+  pruneopts = "NUT"
+  revision = "135c24b11c19e52befcae2ec3fca5d9b78c4e98e"
 
 [[projects]]
-  branch = "v2"
+  digest = "1:18108594151654e9e696b27b181b953f9a90b16bf14d253dd1b397b025a1487f"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
-  revision = "d670f9405373e636a5a2765eea47fac0c9bc91a4"
+  pruneopts = "NUT"
+  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
+  version = "v2.2.2"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "d03c24ca54cfeb2db8d69ce43727eb0ea2a31fa382a9c15719855dcbf63cf509"
+  input-imports = [
+    "github.com/Luzifer/go_helpers/str",
+    "github.com/Luzifer/rconfig",
+    "github.com/flosch/pongo2",
+    "github.com/google/go-github/github",
+    "github.com/gosimple/slug",
+    "github.com/sirupsen/logrus",
+    "golang.org/x/oauth2",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1
