@@ -1,3 +1,8 @@
+# 0.9.0 / 2019-04-15
+
+  * Update vendored dependencies
+  * Add has\_topic filter for conditional templates
+
 # 0.8.1 / 2018-07-12
 
   * Linter: Follow linter advices
