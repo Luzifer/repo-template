@@ -16,6 +16,7 @@ var filters = map[string]filterFunc{
 	"archived":     filterArchived,
 	"dockerfile":   filterDockerfile,
 	"fork":         filterFork,
+	"has-file":     filterHasFile,
 	"make-jenkins": filterMakeJenkins,
 	"public":       filterPublic,
 }
@@ -38,6 +39,21 @@ func filterDockerfile(repo *github.Repository) bool {
 }
 
 func filterFork(repo *github.Repository) bool { return repo.Fork != nil && *repo.Fork }
+
+func filterHasFile(repo *github.Repository) bool {
+	ctx := context.Background()
+	_, _, resp, err := client.Repositories.GetContents(ctx, *repo.Owner.Login, *repo.Name, cfg.FilterHasFile, nil)
+	if err != nil {
+		if resp.StatusCode == 404 {
+			return false
+		}
+
+		log.WithError(err).Error("Error while looking for file")
+		return false
+	}
+
+	return true
+}
 
 func filterMakeJenkins(repo *github.Repository) bool {
 	ctx := context.Background()

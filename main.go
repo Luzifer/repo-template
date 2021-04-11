@@ -23,6 +23,7 @@ var (
 	cfg = struct {
 		Blacklist      []string `flag:"blacklist,b" default:"" description:"Repos to ignore even when matched through filters"`
 		ExpandMatches  bool     `flag:"expand-matches" default:"false" description:"Replace matched repos with their full version"`
+		FilterHasFile  string   `flag:"filter-has-file" default:"" description:"Input for 'has-file' filter: Repo needs to contain this file"`
 		Filters        []string `flag:"filter,f" default:"" description:"Filters to match the repos against"`
 		GithubToken    string   `flag:"token" default:"" env:"GITHUB_TOKEN" description:"Token to access Github API"`
 		LogLevel       string   `flag:"log-level" default:"info" description:"Log level for output (debug, info, warn, error, fatal)"`
