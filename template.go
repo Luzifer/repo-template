@@ -1,10 +1,11 @@
 package main
 
 import (
+	"errors"
 	"strings"
 
-	"github.com/flosch/pongo2"
-	"github.com/google/go-github/github"
+	"github.com/flosch/pongo2/v4"
+	"github.com/google/go-github/v34/github"
 	"github.com/gosimple/slug"
 )
 
@@ -26,8 +27,8 @@ func tplRepoHasTopic(in, param *pongo2.Value) (*pongo2.Value, *pongo2.Error) {
 	repo, ok := in.Interface().(*github.Repository)
 	if !ok {
 		return nil, &pongo2.Error{
-			Sender:   "filter:has_topic",
-			ErrorMsg: "Input was no github.Repository",
+			Sender:    "filter:has_topic",
+			OrigError: errors.New("Input was no github.Repository"),
 		}
 	}
 

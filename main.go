@@ -12,10 +12,10 @@ import (
 
 	"golang.org/x/oauth2"
 
-	"github.com/Luzifer/go_helpers/str"
-	"github.com/Luzifer/rconfig"
-	"github.com/flosch/pongo2"
-	"github.com/google/go-github/github"
+	"github.com/Luzifer/go_helpers/v2/str"
+	"github.com/Luzifer/rconfig/v2"
+	"github.com/flosch/pongo2/v4"
+	"github.com/google/go-github/v34/github"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -39,6 +39,7 @@ var (
 )
 
 func init() {
+	rconfig.AutoEnv(true)
 	if err := rconfig.ParseAndValidate(&cfg); err != nil {
 		log.Fatalf("Unable to parse commandline options: %s", err)
 	}
@@ -128,7 +129,6 @@ func fetchRepos() ([]*github.Repository, error) {
 
 	for {
 		rs, res, err := client.Repositories.List(ctx, "", opt)
-
 		if err != nil {
 			return nil, err
 		}

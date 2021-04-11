@@ -6,7 +6,7 @@ import (
 	"encoding/base64"
 	"strings"
 
-	"github.com/google/go-github/github"
+	"github.com/google/go-github/v34/github"
 	log "github.com/sirupsen/logrus"
 )
 
