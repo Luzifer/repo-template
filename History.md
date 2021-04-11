@@ -1,3 +1,8 @@
+# 0.10.0 / 2021-04-11
+
+  * Add go modules support, use tagged versions of deps
+  * Remove old vendoring / dep management
+
 # 0.9.0 / 2019-04-15
 
   * Update vendored dependencies
