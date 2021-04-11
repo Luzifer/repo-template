@@ -1,3 +1,7 @@
+# 0.11.0 / 2021-04-11
+
+  * Add generic has-file filter
+
 # 0.10.0 / 2021-04-11
 
   * Add go modules support, use tagged versions of deps
